@@ -2,6 +2,7 @@ module Lib
     ( someFunc, Op, valid, apply, eval, choices, 
     subs, interleave, perms, values,
     solutions, solution, split, exprs, combine,
+    combine', solutions', results,
     Expr ) where
 
 someFunc :: IO ()
@@ -10,10 +11,18 @@ someFunc = putStrLn "someFunc"
 -- Number game
 data Op = Add | Sub | Mul | Div deriving (Show)
 
-valid :: Op -> Int -> Int -> Bool  
+{- valid :: Op -> Int -> Int -> Bool  
 valid Add _ _ = True 
 valid Sub x y = x > y
 valid Mul _ _ = True 
+valid Div x y = x `mod` y == 0 -}
+
+-- valid: modified: to cut down the number of duplicate expressions,
+-- we are modifying the above function
+valid :: Op -> Int -> Int -> Bool 
+valid Add x y = x <= y
+valid Sub x y = x > y
+valid Mul x y = x <= y
 valid Div x y = x `mod` y == 0
 
 data Expr = Val Int | App Op Expr Expr deriving Show 
