@@ -22,8 +22,8 @@ valid Div x y = x `mod` y == 0 -}
 valid :: Op -> Int -> Int -> Bool 
 valid Add x y = x <= y
 valid Sub x y = x > y
-valid Mul x y = x <= y
-valid Div x y = x `mod` y == 0
+valid Mul x y = x <= y && x /= 1 && y /= 1
+valid Div x y = x `mod` y == 0 && y /= 1
 
 data Expr = Val Int | App Op Expr Expr deriving Show 
 
