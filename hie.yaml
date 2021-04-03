@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "abhijitFP:lib"
+
+    - path: "./app/Main.hs"
+      component: "abhijitFP:exe:abhijitFP-exe"
+
+    - path: "./app/Paths_abhijitFP.hs"
+      component: "abhijitFP:exe:abhijitFP-exe"
+
+    - path: "./test"
+      component: "abhijitFP:test:abhijitFP-test"
