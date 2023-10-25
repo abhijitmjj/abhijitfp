@@ -1,13 +1,21 @@
 cradle:
-  stack:
-    - path: "./src"
-      component: "abhijitFP:lib"
+  multi:
+    - path: "./"
+      config:
+        cradle:
+          stack:
+            - path: "./src"
+              component: "abhijitFP:lib"
 
-    - path: "./app/Main.hs"
-      component: "abhijitFP:exe:abhijitFP-exe"
+            - path: "./app/Main.hs"
+              component: "abhijitFP:exe:abhijitFP-exe"
 
-    - path: "./app/Paths_abhijitFP.hs"
-      component: "abhijitFP:exe:abhijitFP-exe"
+            - path: "./app/Paths_abhijitFP.hs"
+              component: "abhijitFP:exe:abhijitFP-exe"
 
-    - path: "./test"
-      component: "abhijitFP:test:abhijitFP-test"
+            - path: "./test"
+              component: "abhijitFP:test:abhijitFP-test"
+    - path: "./Setup.hs"
+      config:
+        cradle:
+          none:
